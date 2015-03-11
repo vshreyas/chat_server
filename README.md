@@ -40,14 +40,18 @@ Running the client
 Open a command prompt 
 Navigate to the folder with the server executable
 Run ./chat
-connect <IP>  ///You need to know where to connect
-login <your name> ///login as yourself 
+connect <IP>
+(Use IP of server launched earlier)
+login <your name>
 
 Issue the following commands, or any text messages that you would like to share:
 
-list users  /// List all currently connected users
-history  /// List *my* history of commands
-search history <text>  /// Search for all the things I sent using a very basic regex 
+list users  
+(List all currently connected users)
+history  
+(List *my* history of commands)
+search history <text> 
+(Search for all the things I sent using a very basic regex)
 
 Design and implementation
 ------------------------------------------------
