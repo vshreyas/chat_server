@@ -1,4 +1,4 @@
-#include "common.h"
+#include "sbcp.h"
 
 const char* connect_command = "connect";
 const char* login_command = "login";
@@ -209,9 +209,7 @@ int main(int argc, char *argv[])
 					if(l==sockfd){
 						///start of receive //
 						int i ;
-						for ( i = 0 ; i < MAXDATASIZE ; i++) {
-							recvbuf[i]= 0 ;
-						}
+						memset(recvbuf, 0, MAXDATASIZE);
 						if ((numbytes = read(sockfd, recvbuf, MAXDATASIZE-1)) == -1) {
 							perror("chat> recv");
 							return -2;
@@ -221,7 +219,6 @@ int main(int argc, char *argv[])
 							return -1;
 						}				
 						else if (numbytes >=4){
-							numbytes = 0 ;
 							_UPACKET2 recvpacket2 ;
 							memset(&recvpacket2, 0, sizeof(_UPACKET2));
 							short attr_count = parsing(numbytes, recvbuf, &recvpacket2) ;
@@ -243,9 +240,6 @@ int main(int argc, char *argv[])
 									}
 								}
 								if(message != NULL){ 
-									for(i = 0; i < size_username + 5 ;i++) {
-										printf("\b") ;
-									}
 									if(user != NULL) {
 										printf("chat>%s : %s\n", user, message);
 									}
