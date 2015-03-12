@@ -1,4 +1,4 @@
-#include "sbcp.h"
+#include "common.h"
 
 const char* connect_command = "connect";
 const char* login_command = "login";
